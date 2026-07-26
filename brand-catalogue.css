@@ -1,0 +1,24 @@
+.brand-card{border-color:rgba(255,255,255,.18);background:linear-gradient(145deg,#15191a,#0c0f10)}
+.brand-card .product-image{background:#f8f8f5}
+.brand-card .product-image:after{content:"BRAND CATALOGUE";position:absolute;right:13px;bottom:12px;background:#f05330;color:#fff;border-radius:99px;padding:6px 9px;font:700 8px "Space Grotesk";letter-spacing:.1em}
+.brand-card .product-info small{color:#f47c5f}
+.brand-card .add-button{border-color:rgba(240,83,48,.42)}
+.brand-card:hover .add-button{background:#f05330;border-color:#f05330;color:#fff}
+.brand-results-bar{margin:-8px 0 28px;border:1px solid rgba(240,83,48,.3);background:linear-gradient(90deg,rgba(240,83,48,.13),rgba(240,83,48,.02));border-radius:17px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between}
+.brand-results-bar[hidden]{display:none}
+.brand-results-bar div{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
+.brand-results-bar small{color:#f47c5f;text-transform:uppercase;letter-spacing:.12em;font-size:8px}
+.brand-results-bar strong{font:600 20px "Space Grotesk"}
+.brand-results-bar span{color:#8f9792;font-size:11px}
+.brand-results-bar button{border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff;border-radius:99px;padding:9px 13px;cursor:pointer;font:600 11px "DM Sans"}
+@media(max-width:600px){.brand-results-bar{align-items:flex-start;gap:12px}.brand-results-bar div{display:grid;gap:4px}.brand-results-bar button{white-space:nowrap}}
+.hettich-item-card .product-image{aspect-ratio:1.38;padding:16px;background:#f7f8f4}
+.hettich-item-card .product-image img{object-fit:contain;filter:contrast(1.04) saturate(1.04)}
+.hettich-item-card .product-info h3{font-size:16px;line-height:1.3}
+.plymarc-product{border-color:rgba(221,159,59,.34)!important}.plymarc-product:hover{border-color:#dda03c!important}.plymarc-product .mikasa-grade{color:#f0bd66!important}.plymarc-product .product-image>span{background:#b47a24}
+.trojan-product{border-color:rgba(217,40,48,.34)!important}.trojan-product:hover{border-color:#e12e36!important}.trojan-product .mikasa-grade{color:#ff7479!important}.trojan-product .product-image>span{background:#b91520}
+.plymarc-trustwud-product{border-color:rgba(40,165,143,.38)!important}.plymarc-trustwud-product:hover{border-color:#35b99e!important}.plymarc-trustwud-product .mikasa-grade{color:#71d9c3!important}.plymarc-trustwud-product .product-image>span{background:#147b69}
+.century-product{border-color:rgba(218,170,62,.38)!important}.century-product:hover{border-color:#e0b244!important}.century-product .mikasa-grade{color:#f0c96a!important}.century-product .product-image>span{background:#a87516}.century-product .product-image img{object-fit:contain;background:#fff}
+.spec-form{grid-template-columns:.8fr .85fr 1.1fr .5fr}
+@media(max-width:850px){.spec-form{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.spec-form{grid-template-columns:1fr}}

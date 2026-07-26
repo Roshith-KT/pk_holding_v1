@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quotation Cleared | PK Holding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body{min-height:100vh;margin:0;display:grid;place-items:center;background:#060808;color:#f5f7f2;font-family:"DM Sans",sans-serif}
+    .card{width:min(560px,calc(100% - 40px));padding:46px;border:1px solid rgba(255,255,255,.13);border-radius:28px;background:radial-gradient(circle at 70% 10%,rgba(204,255,61,.16),transparent 34%),#101515;text-align:center;box-shadow:0 30px 90px rgba(0,0,0,.42)}
+    img{width:210px;max-width:70%;height:auto;margin-bottom:22px}
+    h1{font:700 clamp(36px,6vw,58px) "Space Grotesk",sans-serif;letter-spacing:-.055em;margin:0 0 12px}
+    p{color:#aeb8b2;line-height:1.7;margin:0 0 28px}
+    a{display:inline-flex;align-items:center;justify-content:center;height:52px;border-radius:99px;padding:0 24px;background:#ccff3d;color:#060808;text-decoration:none;font-weight:700}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img src="assets/pk-holding-logo-reference-font.png" alt="PK Holding">
+    <h1>Quotation data cleared.</h1>
+    <p>Your quotation list has been removed from this browser. The site is clean and ready for a fresh enquiry.</p>
+    <a href="index.html">Return to home</a>
+  </main>
+  <script>
+    localStorage.removeItem('pk-quote-cart');
+  </script>
+</body>
+</html>
