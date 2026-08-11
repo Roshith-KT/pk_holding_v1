@@ -6,7 +6,14 @@
   align-items: flex-end;
   overflow: hidden;
   padding: 132px 7vw 48px;
-  background: #050606;
+  background:
+    linear-gradient(90deg, rgba(5, 7, 7, .54), rgba(5, 7, 7, .18) 42%, rgba(5, 7, 7, .04) 72%),
+    linear-gradient(0deg, rgba(5, 7, 7, .28), transparent 48%),
+    url("assets/hero/luxury-interior-wallpaper-4k.webp") center center / cover no-repeat #050606;
+}
+
+.home-wallpaper-hero {
+  background-position: center center;
 }
 
 .home-hero-video {
@@ -15,20 +22,21 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center bottom;
   filter: none;
   image-rendering: auto;
-  transform: translateZ(0);
+  transform: translate3d(0, 144px, 0) scale(1.08);
   backface-visibility: hidden;
 }
 
 .home-hero-shade {
   position: absolute;
   inset: 0;
+  opacity: 1;
+  transition: opacity .9s ease, background .9s ease;
   background:
-    radial-gradient(circle at 70% 44%, rgba(204, 255, 61, .08), transparent 32%),
-    linear-gradient(90deg, rgba(5, 7, 7, .72), rgba(5, 7, 7, .28) 52%, rgba(5, 7, 7, .04)),
-    linear-gradient(0deg, rgba(5, 7, 7, .62), transparent 58%);
+    linear-gradient(90deg, rgba(5, 7, 7, .35), rgba(5, 7, 7, .1) 42%, transparent 70%),
+    radial-gradient(circle at 72% 48%, rgba(204, 255, 61, .06), transparent 32%);
 }
 
 .home-video-hero .hero-copy {
@@ -36,6 +44,14 @@
   z-index: 2;
   max-width: 780px;
   text-shadow: 0 18px 55px rgba(0, 0, 0, .72);
+  transform-origin: left bottom;
+  transition:
+    transform .9s cubic-bezier(.2,.8,.2,1),
+    max-width .9s cubic-bezier(.2,.8,.2,1),
+    padding .9s cubic-bezier(.2,.8,.2,1),
+    border-color .9s ease,
+    background .9s ease,
+    box-shadow .9s ease;
 }
 
 .home-video-hero h1 {
@@ -56,6 +72,51 @@
 .home-video-hero .hero-stats {
   margin-top: 24px;
   gap: 36px;
+}
+
+.home-video-hero .hero-copy .eyebrow,
+.home-video-hero .hero-text,
+.home-video-hero .hero-actions,
+.home-video-hero .hero-stats {
+  transition: opacity .55s ease, max-height .55s ease, margin .55s ease, transform .55s ease;
+}
+
+.home-hero-compact .home-video-hero .hero-copy {
+  position: absolute;
+  left: clamp(92px, 6.8vw, 132px);
+  top: 204px;
+  max-width: 360px;
+  padding: 17px 19px 19px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 24px;
+  background: rgba(6,8,8,.54);
+  box-shadow: 0 24px 70px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+  transform-origin: left top;
+  transform: scale(.68);
+}
+
+.home-hero-compact .home-video-hero .hero-copy .eyebrow,
+.home-hero-compact .home-video-hero .hero-text,
+.home-hero-compact .home-video-hero .hero-actions,
+.home-hero-compact .home-video-hero .hero-stats {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+}
+
+.home-hero-compact .home-video-hero h1 {
+  font-size: clamp(27px, 2.5vw, 38px);
+  line-height: .94;
+  letter-spacing: -.055em;
+  margin: 0;
+}
+
+.home-hero-compact .home-video-hero .home-hero-shade {
+  opacity: .05;
 }
 
 .home-video-hero .hero-visual {
@@ -238,9 +299,23 @@
     min-height: 100vh;
     min-height: 100svh;
     padding: 120px 20px 70px;
+    background:
+      linear-gradient(0deg, rgba(5, 7, 7, .72), rgba(5, 7, 7, .42) 38%, rgba(5, 7, 7, .12) 74%),
+      linear-gradient(90deg, rgba(5, 7, 7, .42), rgba(5, 7, 7, .06) 62%),
+      url("assets/hero/luxury-interior-wallpaper-mobile.webp") center center / cover no-repeat #050606;
   }
   .home-video-hero h1 {
     font-size: 52px;
+  }
+  .home-hero-compact .home-video-hero .hero-copy {
+    left: 20px;
+    top: 104px;
+    max-width: 310px;
+    transform: scale(.76);
+    padding: 15px 16px 17px;
+  }
+  .home-hero-compact .home-video-hero h1 {
+    font-size: 30px;
   }
   .hero-visual {
     height: clamp(520px, 72vh, 680px) !important;

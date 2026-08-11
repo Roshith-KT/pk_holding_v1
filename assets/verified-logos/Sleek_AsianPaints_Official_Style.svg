@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1040" role="img" aria-label="Sleek by Asian Paints">
+  <rect width="1800" height="1040" fill="none"/>
+  <g transform="translate(185 205)">
+    <text x="0" y="260" fill="#f21f2b" font-family="Eurostile, BankGothic Md BT, Arial Black, Arial, sans-serif" font-style="italic" font-weight="900" font-size="300" letter-spacing="-18">Sleek</text>
+    <line x1="40" y1="350" x2="610" y2="350" stroke="#f21f2b" stroke-width="9"/>
+    <line x1="1080" y1="350" x2="1500" y2="350" stroke="#f21f2b" stroke-width="9"/>
+    <text x="690" y="382" fill="#f21f2b" font-family="Arial, Helvetica, sans-serif" font-style="italic" font-weight="700" font-size="92">by</text>
+    <g transform="translate(300 430)">
+      <text x="340" y="130" fill="#f21f2b" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="118" letter-spacing="-5">asianpaints</text>
+      <path d="M92 30 C190 -22 278 54 260 143 C248 206 175 238 121 196 C71 158 61 95 92 30Z" fill="#ee6b24"/>
+      <path d="M57 73 C98 -8 201 -2 231 82 C176 36 112 45 57 73Z" fill="#592b91"/>
+      <path d="M106 195 C161 218 241 186 260 121 C277 214 184 280 91 232Z" fill="#fbb040"/>
+      <path d="M124 75 C158 44 217 56 235 107 C197 82 158 86 124 75Z" fill="#f58220"/>
+    </g>
+    <text x="265" y="730" fill="#f21f2b" font-family="Arial, Helvetica, sans-serif" font-size="76" letter-spacing="22">KITCHENS • WARDROBES</text>
+  </g>
+</svg>

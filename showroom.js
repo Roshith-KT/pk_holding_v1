@@ -1,3 +1,10 @@
+function scheduleShowroomHeroCompact(){
+  const heroCopy=document.querySelector('.showroom-hero-copy');
+  if(!heroCopy||document.body.classList.contains('showroom-hero-compact')) return;
+  setTimeout(()=>document.body.classList.add('showroom-hero-compact'),2500);
+}
+scheduleShowroomHeroCompact();
+
 const walk=document.querySelector('.showroom-walk');
 const title=document.querySelector('[data-walk-title]');
 const text=document.querySelector('[data-walk-text]');

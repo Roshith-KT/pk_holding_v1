@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1040" role="img" aria-label="Trojan Plywood">
+  <rect width="1800" height="1040" fill="none"/>
+  <g transform="translate(205 230)">
+    <rect x="0" y="0" width="1390" height="580" rx="28" fill="#ffe500"/>
+    <circle cx="94" cy="78" r="35" fill="#c9c9c9" stroke="#7e7e7e" stroke-width="8"/>
+    <circle cx="1296" cy="78" r="35" fill="#c9c9c9" stroke="#7e7e7e" stroke-width="8"/>
+    <path d="M76 78 h36 M94 60 v36 M1278 78 h36 M1296 60 v36" stroke="#5a5a5a" stroke-width="9"/>
+    <text x="170" y="320" fill="#202942" font-family="Trebuchet MS, Arial, Helvetica, sans-serif" font-size="260" letter-spacing="18">TR  JAN</text>
+    <circle cx="600" cy="228" r="88" fill="none" stroke="#202942" stroke-width="23"/>
+    <path d="M603 125 c28-60 72-68 104-85 c-9 52-47 88-104 85z M670 167 c46-35 86-23 121-21 c-30 43-72 58-121 21z M548 156 c-42-44-35-86-31-123 c42 32 56 76 31 123z" fill="#202942"/>
+    <text x="420" y="475" fill="#202942" font-family="Arial, Helvetica, sans-serif" font-size="95" letter-spacing="48">PLYWOOD</text>
+  </g>
+</svg>

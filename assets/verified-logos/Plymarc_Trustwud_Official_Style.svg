@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1040" role="img" aria-label="Plymarc Trustwud">
+  <rect width="1800" height="1040" fill="none"/>
+  <g transform="translate(185 235)">
+    <text x="0" y="210" fill="#1b1b1b" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="205" letter-spacing="-8">trustwud</text>
+    <text x="15" y="330" fill="#6a3f1b" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="70" letter-spacing="7">PVC • WPC • DOOR FRAMES</text>
+    <text x="15" y="430" fill="#e94b2e" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="70">by plymarc</text>
+    <path d="M1265 15 c130 40 210 135 215 270 c-90-70-200-108-338-115 c40-64 82-112 123-155z" fill="#78a832"/>
+    <path d="M1170 290 c165-18 272 30 350 132 c-150 58-287 40-410-58 c8-29 27-54 60-74z" fill="#b16d28"/>
+  </g>
+</svg>

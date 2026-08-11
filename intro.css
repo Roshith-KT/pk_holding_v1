@@ -463,3 +463,95 @@
   .intro-final-mark { opacity: 1; filter: none; }
   .intro-wood-surface,.intro-carved-mark,.intro-real-carving,.intro-blank-walnut,.real-carving-edge,.real-sawdust,.carving-sweep,.wood-dust { display: none; }
 }
+
+/* Simple 2-second brand intro */
+.brand-intro {
+  background:
+    radial-gradient(circle at 50% 46%, rgba(204,255,61,.12), transparent 32%),
+    linear-gradient(135deg,#070909,#020303 72%);
+}
+
+.brand-intro .intro-grid {
+  opacity: .55;
+  animation: intro-grid-in 1.6s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.brand-intro .intro-glow {
+  opacity: .55;
+  transform: scale(1);
+  animation: none;
+}
+
+.brand-intro .intro-content {
+  position: relative;
+  z-index: 5;
+}
+
+.brand-intro .intro-logo-wrap {
+  position: relative;
+  inset: auto;
+  width: min(620px,86vw);
+  height: min(245px,32vh);
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  opacity: 0;
+  transform: translateY(12px) scale(.96);
+  animation: simple-logo-in .55s .08s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+.brand-intro .intro-logo-wrap::before,
+.brand-intro .intro-logo-wrap::after,
+.brand-intro .intro-blank-walnut,
+.brand-intro .intro-real-carving,
+.brand-intro .real-carving-edge,
+.brand-intro .real-sawdust {
+  display: none !important;
+}
+
+.brand-intro .intro-final-mark {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  transform: none;
+  animation: none;
+  filter: brightness(1.12) drop-shadow(0 18px 48px rgba(0,0,0,.78));
+}
+
+.brand-intro .intro-rule {
+  position: relative;
+  z-index: 6;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  width: min(430px,70vw);
+  margin: 18px 0 18px;
+}
+
+.brand-intro .intro-rule i {
+  animation: intro-rule-pass .9s .22s ease forwards;
+}
+
+.brand-intro .intro-signature {
+  position: relative;
+  z-index: 6;
+  left: auto;
+  bottom: auto;
+  transform: translateY(8px);
+  opacity: 0;
+  animation: intro-copy-in .52s .38s ease forwards;
+}
+
+.brand-intro .intro-progress i {
+  animation-duration: 2s;
+}
+
+@keyframes simple-logo-in {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}

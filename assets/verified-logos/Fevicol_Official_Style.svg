@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1040" role="img" aria-label="Fevicol">
+  <rect width="1800" height="1040" fill="none"/>
+  <g transform="translate(230 145)">
+    <path d="M390 345 A285 285 0 0 1 950 345 Z" fill="#f6a51a"/>
+    <g fill="#244f9e">
+      <path d="M350 300 c-95 0-170 66-170 148 h260 c0-82-24-148-90-148z"/>
+      <path d="M990 300 c95 0 170 66 170 148 H900 c0-82 24-148 90-148z"/>
+      <path d="M168 402 c-50-18-83-51-93-98 c22 8 41 16 58 25 c-19-40-12-75 26-109 c-4 39 10 71 41 96z"/>
+      <path d="M1172 402 c50-18 83-51 93-98 c-22 8-41 16-58 25 c19-40 12-75-26-109 c4 39-10 71-41 96z"/>
+      <circle cx="670" cy="405" r="50"/>
+      <path d="M640 370 h60 v70 h-60z" fill="#fff" opacity=".18"/>
+    </g>
+    <rect x="115" y="448" width="1110" height="16" fill="#244f9e"/>
+    <text x="0" y="735" fill="#244f9e" font-family="Georgia, Times New Roman, serif" font-weight="900" font-size="268" letter-spacing="-10">FEVICOL</text>
+    <text x="1285" y="535" fill="#244f9e" font-family="Arial, Helvetica, sans-serif" font-size="64">®</text>
+  </g>
+</svg>

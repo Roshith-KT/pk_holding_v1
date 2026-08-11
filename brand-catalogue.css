@@ -4,14 +4,18 @@
 .brand-card .product-info small{color:#f47c5f}
 .brand-card .add-button{border-color:rgba(240,83,48,.42)}
 .brand-card:hover .add-button{background:#f05330;border-color:#f05330;color:#fff}
-.brand-results-bar{margin:-8px 0 28px;border:1px solid rgba(240,83,48,.3);background:linear-gradient(90deg,rgba(240,83,48,.13),rgba(240,83,48,.02));border-radius:17px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between}
+.brand-results-bar{margin:-8px 0 28px;border:1px solid rgba(240,83,48,.3);background:linear-gradient(90deg,rgba(240,83,48,.13),rgba(240,83,48,.02));border-radius:17px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:18px}
 .brand-results-bar[hidden]{display:none}
 .brand-results-bar div{display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
 .brand-results-bar small{color:#f47c5f;text-transform:uppercase;letter-spacing:.12em;font-size:8px}
 .brand-results-bar strong{font:600 20px "Space Grotesk"}
 .brand-results-bar span{color:#8f9792;font-size:11px}
-.brand-results-bar button{border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff;border-radius:99px;padding:9px 13px;cursor:pointer;font:600 11px "DM Sans"}
-@media(max-width:600px){.brand-results-bar{align-items:flex-start;gap:12px}.brand-results-bar div{display:grid;gap:4px}.brand-results-bar button{white-space:nowrap}}
+.brand-results-bar .brand-results-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.brand-results-bar .brand-downloads{display:flex!important;align-items:center!important;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.catalogue-download,.brand-results-bar button{border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff;border-radius:99px;padding:9px 13px;cursor:pointer;font:600 11px "DM Sans"}
+.catalogue-download{border-color:rgba(204,255,61,.45);background:rgba(204,255,61,.13);color:var(--lime)}
+.catalogue-download:hover{background:var(--lime);color:#080a09}
+@media(max-width:600px){.brand-results-bar{align-items:flex-start;gap:12px;flex-direction:column}.brand-results-bar div{display:grid;gap:4px}.brand-results-bar .brand-results-actions,.brand-results-bar .brand-downloads{justify-content:flex-start}.brand-results-bar button,.catalogue-download{white-space:nowrap}}
 .hettich-item-card .product-image{aspect-ratio:1.38;padding:16px;background:#f7f8f4}
 .hettich-item-card .product-image img{object-fit:contain;filter:contrast(1.04) saturate(1.04)}
 .hettich-item-card .product-info h3{font-size:16px;line-height:1.3}

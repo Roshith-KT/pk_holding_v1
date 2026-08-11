@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" role="img" aria-label="Häfele">
+  <rect width="1200" height="260" fill="#f8f8f5"/>
+  <g transform="translate(78 58)">
+    <text x="0" y="132" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="148" font-weight="900" letter-spacing="4">
+      <tspan fill="#8c8c8c">H</tspan><tspan fill="#e31937">Ä</tspan><tspan fill="#8c8c8c">FELE</tspan>
+    </text>
+  </g>
+</svg>

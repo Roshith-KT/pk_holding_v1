@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1040" role="img" aria-label="Royale Touche">
+  <rect width="1800" height="1040" fill="none"/>
+  <g transform="translate(435 80)" fill="none" stroke="#c4a05c" stroke-width="46" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M465 95 L610 220 H815 C815 520 690 700 465 835 C240 700 115 520 115 220 H320 Z"/>
+    <path d="M465 95 V820"/>
+    <path d="M330 375 C330 285 400 220 500 220 H625 C735 220 790 292 765 382 C748 444 690 482 610 482 H395"/>
+    <path d="M395 482 H628 C742 482 800 558 770 650 C742 733 672 760 570 760 H395"/>
+    <path d="M395 220 V760"/>
+    <circle cx="465" cy="45" r="36" fill="#c4a05c" stroke="none"/>
+  </g>
+  <text x="220" y="955" fill="#171717" font-family="Georgia, Times New Roman, serif" font-size="128" letter-spacing="9">ROYALE TOUCHE</text>
+  <text x="1440" y="260" fill="#171717" font-family="Arial, Helvetica, sans-serif" font-size="70">®</text>
+</svg>

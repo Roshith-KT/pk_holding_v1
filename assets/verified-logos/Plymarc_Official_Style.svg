@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1040" role="img" aria-label="Plymarc">
+  <rect width="1800" height="1040" fill="none"/>
+  <g transform="translate(220 235)">
+    <g transform="translate(0 15)">
+      <path d="M0 168 L150 30 L300 168 Z" fill="#e94b2e"/>
+      <path d="M126 30 L276 168 H370 L218 30 Z" fill="#f7a928"/>
+      <path d="M255 30 L405 168 H505 L352 30 Z" fill="#f4cf43"/>
+      <rect x="0" y="190" width="505" height="45" rx="8" fill="#1c1c1c"/>
+    </g>
+    <text x="565" y="260" fill="#1b1b1b" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="210" letter-spacing="-10">plymarc</text>
+    <text x="570" y="405" fill="#e94b2e" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="76" letter-spacing="9">PLYWOOD</text>
+    <text x="570" y="500" fill="#1b1b1b" font-family="Arial, Helvetica, sans-serif" font-size="54" letter-spacing="7">MARK OF QUALITY</text>
+  </g>
+</svg>

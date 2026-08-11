@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="brand-catalogue.css">
   <link rel="stylesheet" href="highlights.css">
   <link rel="stylesheet" href="reels.css">
-  <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
   <div class="brand-intro" role="dialog" aria-label="Welcome to PK Holding" aria-modal="true">
@@ -24,17 +23,12 @@
     <div class="intro-glow" aria-hidden="true"></div>
     <div class="intro-content">
       <div class="intro-logo-wrap">
-        <img class="intro-blank-walnut" src="assets/teak-blank.png" alt="Untouched premium teak before carving">
-        <img class="intro-real-carving" src="assets/pk-logo-real-teak-carving.png" alt="PK Holding logo carved into real teak wood">
-        <div class="real-carving-edge" aria-hidden="true"></div>
-        <div class="real-sawdust" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
         <img class="intro-final-mark" src="assets/pk-holding-logo-reference-font.png" alt="PK Holding — Perfect Interior Materials">
       </div>
       <div class="intro-rule"><i></i></div>
       <p class="intro-signature">Made for Living.</p>
     </div>
     <div class="intro-progress" aria-hidden="true"><i></i></div>
-    <button class="intro-skip" type="button">Skip intro</button>
   </div>
   <div class="noise"></div>
   <header class="site-header">
@@ -45,14 +39,11 @@
       <a class="nav-feature nav-catalogue" href="#catalogue"><i></i>Catalogue</a><a class="nav-feature nav-about" href="about.html"><i></i>About us</a><a class="nav-feature nav-showroom" href="showroom.html"><i></i>Showroom</a><a class="nav-feature nav-achievements" href="achievements.html"><i></i>Achievements</a><a class="nav-feature nav-why" href="#why-us"><i></i>Why us</a><a href="#contact">Contact</a>
     </nav>
     <button class="quote-pill" data-open-cart>Quotation <span data-cart-count>0</span></button>
-    <button class="menu-button" aria-label="Open menu">☰</button>
+    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
   </header>
 
   <main id="top">
-    <section class="hero home-video-hero">
-      <video class="home-hero-video" autoplay muted loop playsinline preload="auto" poster="assets/showroom/arrival-lounge-enhanced.webp" aria-label="PK Holding showroom and materials video">
-        <source src="assets/reels/pk-reel-achievements.mp4" type="video/mp4">
-      </video>
+    <section class="hero home-video-hero home-wallpaper-hero" aria-label="Premium luxury interior wallpaper">
       <div class="home-hero-shade" aria-hidden="true"></div>
       <div class="hero-copy">
         <p class="eyebrow"><span></span> Kerala's material specialists since 1985</p>
@@ -67,29 +58,6 @@
           <div><strong>30+</strong><span>Leading brands</span></div>
           <div><strong>Kerala</strong><span>Delivery network</span></div>
         </div>
-      </div>
-      <div class="hero-visual" aria-label="Premium interior materials">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="hero-video-showcase" aria-label="PK Holding videos playing one by one">
-          <video class="hero-sequence-video active" muted playsinline preload="metadata" poster="assets/showroom/arrival-lounge-enhanced.webp">
-            <source src="assets/reels/pk-reel-showroom.mp4" type="video/mp4">
-          </video>
-          <video class="hero-sequence-video" muted playsinline preload="metadata" poster="assets/showroom/material-library-enhanced.webp">
-            <source src="assets/reels/pk-reel-kitchens.mp4" type="video/mp4">
-          </video>
-          <video class="hero-sequence-video" muted playsinline preload="metadata" poster="assets/showroom/hardware-gallery-enhanced.webp">
-            <source src="assets/reels/pk-reel-products.mp4" type="video/mp4">
-          </video>
-          <video class="hero-sequence-video" muted playsinline preload="metadata" poster="assets/showroom/arrival-lounge-enhanced.webp">
-            <source src="assets/reels/pk-reel-achievements.mp4" type="video/mp4">
-          </video>
-          <button class="video-nav video-prev" type="button" data-video-prev aria-label="Previous video">‹</button>
-          <button class="video-nav video-next" type="button" data-video-next aria-label="Next video">›</button>
-          <button class="video-sound-toggle" type="button" data-video-sound>Click to unmute</button>
-          <div class="video-showcase-dots" aria-hidden="true"><i class="active"></i><i></i><i></i><i></i></div>
-        </div>
-        <div class="floating-note note-one">Latest reels <b>01</b></div>
-        <div class="floating-note note-two">Showroom stories <b>02</b></div>
       </div>
     </section>
 
@@ -117,7 +85,7 @@
         <div class="filters" role="group" aria-label="Filter products"></div>
         <label class="search"><span>⌕</span><input id="product-search" type="search" placeholder="Search products or brands…" aria-label="Search products"></label>
       </div>
-      <div class="brand-results-bar" hidden><div><small>Brand catalogue</small><strong>Mikasa Plywood</strong><span>8 brochure products</span></div><button type="button" data-all-brands>← All brands</button></div>
+      <div class="brand-results-bar" hidden><div><small>Brand catalogue</small><strong>Mikasa Plywood</strong><span>8 brochure products</span></div><div class="brand-results-actions"><div class="brand-downloads"></div><button type="button" data-all-brands>← All brands</button></div></div>
       <div class="product-grid" id="product-grid"></div>
       <p class="empty-state" hidden>No matching products. Try another search.</p>
     </section>
@@ -147,8 +115,8 @@
           <video class="hero-sequence-video" muted playsinline preload="metadata" poster="assets/showroom/hardware-gallery-enhanced.webp">
             <source src="assets/reels/pk-reel-products.mp4" type="video/mp4">
           </video>
-          <button class="video-nav video-prev" type="button" data-video-prev aria-label="Previous video">â€¹</button>
-          <button class="video-nav video-next" type="button" data-video-next aria-label="Next video">â€º</button>
+          <button class="video-nav video-prev" type="button" data-video-prev aria-label="Previous video">‹</button>
+          <button class="video-nav video-next" type="button" data-video-next aria-label="Next video">›</button>
           <button class="video-sound-toggle" type="button" data-video-sound>Click to unmute</button>
           <div class="video-showcase-dots" aria-hidden="true"><i class="active"></i><i></i><i></i></div>
         </div>
@@ -176,7 +144,7 @@
     <div class="footer-brand"><img src="assets/pk-holding-logo-reference-font.png" alt="PK Holding — Perfect Interior Materials"><small>Made for Living.</small></div>
     <div><strong>Explore</strong><p><a href="about.html">About us</a><br><a href="showroom.html">Showroom</a><br><a href="achievements.html">Achievements</a></p></div>
     <div><strong>Hours</strong><p>Mon–Sat · 9:00–18:00<br>Sunday · Closed</p></div>
-    <div><strong>Contact</strong><p><a href="tel:+917510210235">+91 75102 10235</a><br><a href="mailto:sales@pkholdingindia.com">sales@pkholdingindia.com</a></p></div>
+    <div><strong>Contact</strong><p><a href="tel:+917736210236">+91 77362 10236</a><br><a href="mailto:sales@pkholdingindia.com">sales@pkholdingindia.com</a></p></div>
   </footer>
 
   <div class="cart-overlay" data-close-cart></div>
@@ -224,6 +192,5 @@
   <script src="hettich-data.js"></script>
   <script src="century-data.js"></script>
   <script src="app.js"></script>
-  <script src="responsive.js"></script>
 </body>
 </html>

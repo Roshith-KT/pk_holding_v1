@@ -52,13 +52,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center bottom;
   transform: scale(1.04);
   animation: showroom-hero-in 8s ease-out forwards;
   filter: saturate(1.08) contrast(1.04) brightness(1.06);
 }
 
 .showroom-hero-video {
-  transform: scale(1);
+  transform: translate3d(0, 144px, 0) scale(1.08);
   animation: none;
 }
 
@@ -76,6 +77,14 @@
   z-index: 2;
   max-width: 910px;
   text-shadow: 0 18px 55px rgba(0, 0, 0, .7);
+  transform-origin: left bottom;
+  transition:
+    transform .9s cubic-bezier(.2,.8,.2,1),
+    max-width .9s cubic-bezier(.2,.8,.2,1),
+    padding .9s cubic-bezier(.2,.8,.2,1),
+    border-color .9s ease,
+    background .9s ease,
+    box-shadow .9s ease;
 }
 
 .showroom-hero h1 {
@@ -95,6 +104,43 @@
   color: #d8ded8;
   font-size: 18px;
   line-height: 1.7;
+}
+
+.showroom-hero-copy .eyebrow,
+.showroom-hero-copy > p:not(.eyebrow) {
+  transition: opacity .55s ease, max-height .55s ease, margin .55s ease, transform .55s ease;
+}
+
+.showroom-hero-compact .showroom-hero-copy {
+  position: absolute;
+  left: clamp(92px, 6.8vw, 132px);
+  top: 204px;
+  max-width: 360px;
+  padding: 17px 19px 19px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 24px;
+  background: rgba(6,8,8,.54);
+  box-shadow: 0 24px 70px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+  transform-origin: left top;
+  transform: scale(.68);
+}
+
+.showroom-hero-compact .showroom-hero-copy .eyebrow,
+.showroom-hero-compact .showroom-hero-copy > p:not(.eyebrow) {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+}
+
+.showroom-hero-compact .showroom-hero h1 {
+  font-size: clamp(27px, 2.5vw, 38px);
+  line-height: .94;
+  letter-spacing: -.055em;
+  margin: 0;
 }
 
 .showroom-index {
@@ -367,6 +413,16 @@
   }
   .showroom-hero { padding: 120px 20px 60px; }
   .showroom-hero h1 { font-size: 58px; }
+  .showroom-hero-compact .showroom-hero-copy {
+    left: 20px;
+    top: 104px;
+    max-width: 310px;
+    transform: scale(.76);
+    padding: 15px 16px 17px;
+  }
+  .showroom-hero-compact .showroom-hero h1 {
+    font-size: 30px;
+  }
   .showroom-walk { height: 420vh; }
   .walk-stage { padding: 24px; min-height: 560px; }
   .walk-frame { inset: -14%; width: 128%; height: 128%; }
