@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="PK Holding — premium plywood, laminates, hardware and interior materials. Build and send your quotation on WhatsApp.">
+  <meta name="description" content="PK Holding — premium plywood, laminates, hardware and interior materials. Share your project details and PDF for a personalised quotation.">
   <title>PK Holding | Future-ready interior materials</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/hero/luxury-interior-wallpaper-mobile.webp" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero/luxury-interior-wallpaper-4k.webp" media="(min-width: 761px)" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="immersive.css">
@@ -15,7 +17,11 @@
   <link rel="stylesheet" href="mikasa.css">
   <link rel="stylesheet" href="brand-catalogue.css">
   <link rel="stylesheet" href="highlights.css">
-  <link rel="stylesheet" href="reels.css">
+  <link rel="stylesheet" href="reels.css?v=20261025b">
+  <link rel="stylesheet" href="home-premium.css?v=20261025a">
+  <link rel="stylesheet" href="home-scenes.css?v=20261025a">
+  <link rel="stylesheet" href="mobile-polish.css?v=20261025a">
+  <link rel="stylesheet" href="walkthrough.css?v=20261025a">
 </head>
 <body>
   <div class="brand-intro" role="dialog" aria-label="Welcome to PK Holding" aria-modal="true">
@@ -31,6 +37,7 @@
     <div class="intro-progress" aria-hidden="true"><i></i></div>
   </div>
   <div class="noise"></div>
+  <div class="site-progress" aria-hidden="true"><i></i></div>
   <header class="site-header">
     <a class="brand brand-lockup" href="#top" aria-label="PK Holding — Perfect Interior Materials">
       <img src="assets/pk-holding-logo-reference-font.png" alt="PK Holding — Perfect Interior Materials">
@@ -38,7 +45,7 @@
     <nav aria-label="Main navigation">
       <a class="nav-feature nav-catalogue" href="#catalogue"><i></i>Catalogue</a><a class="nav-feature nav-about" href="about.html"><i></i>About us</a><a class="nav-feature nav-showroom" href="showroom.html"><i></i>Showroom</a><a class="nav-feature nav-achievements" href="achievements.html"><i></i>Achievements</a><a class="nav-feature nav-why" href="#why-us"><i></i>Why us</a><a href="#contact">Contact</a>
     </nav>
-    <button class="quote-pill" data-open-cart>Quotation <span data-cart-count>0</span></button>
+    <button class="quote-pill" data-open-cart>Quotation <span>PDF</span></button>
     <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
   </header>
 
@@ -46,40 +53,96 @@
     <section class="hero home-video-hero home-wallpaper-hero" aria-label="Premium luxury interior wallpaper">
       <div class="home-hero-shade" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> Kerala's material specialists since 1985</p>
+        <p class="eyebrow"><span></span> Kerala's material specialists since 1971</p>
         <h1>Spaces begin with <em>better materials.</em></h1>
-        <p class="hero-text">Explore premium plywood, laminates, veneers, hardware and surface solutions. Build your requirement list and get a personalised quotation on WhatsApp.</p>
+        <p class="hero-text">Explore premium plywood, laminates, veneers, hardware and surface solutions. Share your project details and PDF for a personalised quotation.</p>
         <div class="hero-actions">
           <a class="button primary" href="#catalogue">Explore catalogue <b>↘</b></a>
           <a class="button secondary" href="https://wa.me/917736210236" target="_blank" rel="noopener">Talk to an expert</a>
         </div>
         <div class="hero-stats">
-          <div><strong>40+</strong><span>Years of trust</span></div>
+          <div><strong>55+</strong><span>Years of trust</span></div>
           <div><strong>30+</strong><span>Leading brands</span></div>
-          <div><strong>Kerala</strong><span>Delivery network</span></div>
+          <div class="delivery-stat"><strong>Kerala · Karnataka · Tamil Nadu</strong><span>Delivery network</span></div>
         </div>
       </div>
+      <a class="media-lens" href="media.html" aria-label="Open the PK Holding posters and videos page">
+        <span class="lens-preview" aria-hidden="true"></span>
+        <span class="lens-kicker">Visual journal</span>
+        <span class="lens-icon" aria-hidden="true">⌕</span>
+        <strong>Videos<br>&amp; Posters</strong>
+        <small><b data-media-count>0</b> updates</small>
+      </a>
+      <div class="hero-coordinate" aria-hidden="true"><span>11.6797° N</span><i></i><span>75.6465° E</span></div>
     </section>
 
     <section class="ticker" aria-label="Product categories"><div>PLYWOOD • MULTIWOOD • LAMINATES • VENEERS • HARDWARE • ADHESIVES • PLYWOOD • MULTIWOOD • LAMINATES •</div></section>
 
     <section class="interior-journey" aria-label="Immersive modern interior">
       <div class="interior-stage">
-        <img class="interior-background" src="assets/immersive-living-room-lighted-hd.webp" alt="Bright contemporary luxury living room showcasing premium wood, veneer, glass and stone materials">
+        <div class="interior-scene-stack" aria-hidden="true">
+          <img class="interior-background interior-scene active" src="assets/immersive-living-room-lighted-hd.webp" alt="">
+          <img class="interior-background interior-scene" src="assets/hero/luxury-interior-wallpaper-4k.webp" alt="">
+          <img class="interior-background interior-scene" src="assets/showroom/consultation-bar-enhanced.webp" alt="">
+        </div>
         <div class="interior-shade"></div>
+        <div class="walkthrough-portal" aria-hidden="true"></div>
+        <div class="interior-daylight" aria-hidden="true"></div>
+        <div class="interior-atmosphere" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="interior-copy">
           <p class="eyebrow"><span></span> Step inside the material</p>
           <h2>Imagine it.<br><em>Then enter it.</em></h2>
           <p>Every surface changes how a space feels. A living room shaped by warm timber, premium laminates, precision hardware and enduring finishes.</p>
+          <small class="interior-scene-label"><b>01</b> Living space</small>
         </div>
+        <div class="walkthrough-products" aria-label="Materials featured in the walkthrough">
+          <article class="walkthrough-product active" data-product-scene="0"><i class="product-pin" aria-hidden="true"><b></b></i><div><small>Featured surface · 01</small><strong>Natural wood veneer</strong><span>Warm grain, carefully matched for continuous surfaces.</span></div></article>
+          <article class="walkthrough-product" data-product-scene="1"><i class="product-pin" aria-hidden="true"><b></b></i><div><small>Featured surface · 02</small><strong>Premium laminates</strong><span>Refined colour, texture and durability for everyday living.</span></div></article>
+          <article class="walkthrough-product" data-product-scene="2"><i class="product-pin" aria-hidden="true"><b></b></i><div><small>Featured detail · 03</small><strong>Precision kitchen hardware</strong><span>Soft-close movement and intelligent storage systems.</span></div></article>
+        </div>
+        <div class="interior-material-tags" aria-label="Interior material qualities">
+          <span><b>01</b> Natural texture</span><span><b>02</b> Engineered strength</span><span><b>03</b> Precision detail</span>
+        </div>
+        <div class="interior-scene-nav" aria-label="Interior scroll scenes">
+          <button class="active" type="button" data-scene-jump="0" aria-current="true"><b>01</b><span>Living</span></button>
+          <button type="button" data-scene-jump="1"><b>02</b><span>Lounge</span></button>
+          <button type="button" data-scene-jump="2"><b>03</b><span>Kitchen</span></button>
+        </div>
+        <div class="interior-scroll-prompt" aria-hidden="true"><i></i><span>Scroll through the space</span></div>
+        <div class="walkthrough-progress" aria-hidden="true"><i></i><span>00%</span></div>
       </div>
     </section>
 
-    <section class="catalogue section" id="catalogue">
+    <section class="material-worlds section" aria-labelledby="material-worlds-title">
+      <div class="material-worlds-heading" data-home-reveal>
+        <div><p class="eyebrow"><span></span> Curated material worlds</p><h2 id="material-worlds-title">Choose the feeling.<br>We’ll help build it.</h2></div>
+        <p>Explore materials through the spaces they create—from warm natural grain to refined surfaces and intelligent hardware.</p>
+      </div>
+      <div class="material-world-grid">
+        <a class="material-world material-world-wide" href="#catalogue" data-home-reveal>
+          <img src="assets/showroom/arrival-lounge-enhanced.webp" alt="Luxury interior featuring rich natural wood surfaces" loading="lazy">
+          <span class="material-world-index">01 / 04</span><div><small>Warmth &amp; character</small><h3>Plywood &amp; natural wood</h3><b>Explore materials ↘</b></div>
+        </a>
+        <a class="material-world" href="#catalogue" data-home-reveal>
+          <img src="assets/showroom/material-library-enhanced.webp" alt="Premium laminate and finish display library" loading="lazy">
+          <span class="material-world-index">02 / 04</span><div><small>Colour &amp; expression</small><h3>Laminates &amp; surfaces</h3><b>Explore materials ↘</b></div>
+        </a>
+        <a class="material-world" href="#catalogue" data-home-reveal>
+          <img src="assets/showroom/hardware-gallery-enhanced.webp" alt="Architectural hardware display" loading="lazy">
+          <span class="material-world-index">03 / 04</span><div><small>Movement &amp; precision</small><h3>Architectural hardware</h3><b>Explore materials ↘</b></div>
+        </a>
+        <a class="material-world material-world-wide" href="showroom.html" data-home-reveal>
+          <img src="assets/showroom/consultation-bar-enhanced.webp" alt="Contemporary kitchen display with premium finishes" loading="lazy">
+          <span class="material-world-index">04 / 04</span><div><small>Form &amp; function</small><h3>Modern kitchen systems</h3><b>Visit the showroom ↗</b></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="catalogue section" id="catalogue" data-home-reveal>
       <div class="section-feature-label feature-catalogue"><b>01</b><span>Catalogue</span><i>Explore materials</i></div>
       <div class="section-heading">
         <div><p class="eyebrow"><span></span> Product universe</p><h2>Everything your project needs.</h2></div>
-        <p>Select products, adjust quantities, then send the complete requirement to our team for pricing.</p>
+        <p>Browse products brand by brand and download the relevant catalogues. Use the quotation button to share your project details and PDF.</p>
       </div>
       <div class="catalogue-tools">
         <div class="filters" role="group" aria-label="Filter products"></div>
@@ -90,14 +153,19 @@
       <p class="empty-state" hidden>No matching products. Try another search.</p>
     </section>
 
-    <section class="process section" id="why-us">
+    <section class="brand-updates section" id="brand-updates" hidden>
+      <div class="section-heading"><div><p class="eyebrow"><span></span> Newly published</p><h2>Latest brand updates.</h2></div><p>Posters, product videos and brochures published by PK Holding.</p></div>
+      <div class="brand-update-grid" id="brand-update-grid"></div>
+    </section>
+
+    <section class="process section" id="why-us" data-home-reveal>
       <div class="section-feature-label feature-why"><b>03</b><span>Why us</span><i>The PK advantage</i></div>
       <div class="section-heading">
         <div><p class="eyebrow"><span></span> Smarter sourcing</p><h2>From selection to site, simplified.</h2></div>
       </div>
       <div class="process-grid">
-        <article><b>01</b><h3>Build your list</h3><p>Browse by material or brand and add everything your project requires.</p></article>
-        <article><b>02</b><h3>Share specifications</h3><p>Add thickness, size, finish and quantities in your quotation notes.</p></article>
+        <article><b>01</b><h3>Explore catalogues</h3><p>Browse by material or brand and download the catalogues relevant to your project.</p></article>
+        <article><b>02</b><h3>Share specifications</h3><p>Enter your details and optionally attach a PDF containing sizes, finishes and quantities.</p></article>
         <article><b>03</b><h3>Get expert pricing</h3><p>Our team confirms availability, best price and delivery options directly.</p></article>
       </div>
       <div class="why-video-block">
@@ -123,7 +191,7 @@
       </div>
     </section>
 
-    <section class="cta section" id="contact">
+    <section class="cta section" id="contact" data-home-reveal>
       <p class="eyebrow"><span></span> Start your project</p>
       <h2>Good interiors start long before installation.</h2>
       <p>Tell us what you are building. We’ll help you choose the right materials for the job.</p>
@@ -144,21 +212,32 @@
     <div class="footer-brand"><img src="assets/pk-holding-logo-reference-font.png" alt="PK Holding — Perfect Interior Materials"><small>Made for Living.</small></div>
     <div><strong>Explore</strong><p><a href="about.html">About us</a><br><a href="showroom.html">Showroom</a><br><a href="achievements.html">Achievements</a></p></div>
     <div><strong>Hours</strong><p>Mon–Sat · 9:00–18:00<br>Sunday · Closed</p></div>
-    <div><strong>Contact</strong><p><a href="tel:+917736210236">+91 77362 10236</a><br><a href="mailto:sales@pkholdingindia.com">sales@pkholdingindia.com</a></p></div>
+    <div><strong>Contact</strong><p><a href="tel:+917736210236">+91 77362 10236</a><br><a href="mailto:sales@pkholdingindia.com">sales@pkholdingindia.com</a><br><a class="owner-login-link" href="admin.html">Owner login</a></p></div>
   </footer>
 
   <div class="cart-overlay" data-close-cart></div>
-  <aside class="quote-drawer" aria-label="Quotation cart" aria-hidden="true">
-    <div class="drawer-head"><div><p class="eyebrow"><span></span> Your requirement</p><h2>Quotation list</h2></div><button data-close-cart aria-label="Close quotation">×</button></div>
-    <div class="cart-items"></div>
-    <div class="cart-empty"><span>◇</span><h3>Your list is empty</h3><p>Add products from the catalogue to start a quotation.</p></div>
-    <div class="drawer-form">
-      <label>Your name <input id="customer-name" placeholder="Name / company"></label>
-      <label>Project details <textarea id="quote-notes" rows="3" placeholder="Sizes, thicknesses, colours, delivery location…"></textarea></label>
-      <button class="button primary whatsapp-button">Send quotation on WhatsApp ↗</button>
-      <button class="clear-quotation-button" type="button" data-clear-cart>Clear quotation list</button>
-      <small>No payment is taken. Our team will confirm price and availability.</small>
-    </div>
+  <aside class="quote-drawer" aria-label="Quotation request" aria-hidden="true">
+    <div class="drawer-head"><div><p class="eyebrow"><span></span> Project enquiry</p><h2>Request a quotation</h2></div><button data-close-cart aria-label="Close quotation">×</button></div>
+    <p class="quote-intro">Tell us who you are and describe the requirement. You may also select a PDF if available, then continue directly to our WhatsApp chat.</p>
+    <form class="drawer-form" id="quotation-form">
+      <div class="quote-form-grid">
+        <label>Full name <input id="customer-name" name="name" autocomplete="name" placeholder="Your full name" required></label>
+        <label>Company <input id="customer-company" name="company" autocomplete="organization" placeholder="Company name (optional)"></label>
+        <label>Mobile number <input id="customer-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Mobile number" required></label>
+        <label>Email address <input id="customer-email" name="email" type="email" autocomplete="email" placeholder="Email (optional)"></label>
+      </div>
+      <label>Project / delivery location <input id="project-location" name="location" placeholder="Town, district or site location (optional)"></label>
+      <label>Requirement details <textarea id="quote-notes" name="details" rows="4" placeholder="Materials, brands, sizes, thicknesses, finishes and quantities (optional)…"></textarea></label>
+      <label class="quote-file-label" for="quote-pdf">
+        <span>Attach requirement PDF (optional)</span>
+        <strong>Choose PDF file</strong>
+        <small class="quote-file-name">Optional · PDF only · maximum 25 MB</small>
+        <input id="quote-pdf" name="quotationPdf" type="file" accept="application/pdf,.pdf">
+      </label>
+      <button class="button primary whatsapp-button" type="submit">Continue to PK Holding WhatsApp ↗</button>
+      <p class="quote-send-status" role="status" aria-live="polite"></p>
+      <small>Your details will open directly in the PK Holding WhatsApp chat. If you selected a PDF, attach it in the chat before sending.</small>
+    </form>
   </aside>
 
   <div class="spec-overlay" data-close-spec></div>
@@ -175,22 +254,17 @@
       <div class="spec-badges"></div>
       <div class="spec-facts"></div>
       <div class="spec-applications"></div>
-      <div class="spec-form">
-        <label>Grade<select id="spec-grade"></select></label>
-        <label>Thickness<select id="spec-thickness"></select></label>
-        <label>Sheet size<input id="spec-size" placeholder="Example: 8 ft × 4 ft"></label>
-        <label>Quantity<input id="spec-qty" type="number" min="1" value="1"></label>
-        <label class="spec-notes-label">Requirement notes<textarea id="spec-notes" rows="2" placeholder="Cut size, application, delivery location…"></textarea></label>
-      </div>
-      <button class="button primary spec-add">Add configured product to quotation +</button>
       <small class="spec-disclaimer">Final availability and specifications will be confirmed by PK Holding.</small>
     </div>
   </section>
-  <button class="floating-cart" data-open-cart aria-label="Open quotation"><span>◇</span><b data-cart-count>0</b><em>Quotation</em></button>
-  <div class="toast" role="status">Added to quotation</div>
+  <button class="floating-cart" data-open-cart aria-label="Open quotation request"><span aria-hidden="true">↥</span><b>PDF</b><em>Quotation</em></button>
+  <div class="toast" role="status">Quotation request ready</div>
   <script src="header-scroll.js"></script>
   <script src="hettich-data.js"></script>
   <script src="century-data.js"></script>
   <script src="app.js"></script>
+  <script src="uploads.js?v=20261025b"></script>
+  <script src="home-premium.js?v=20261025a"></script>
+  <script src="home-scenes.js?v=20261025b"></script>
 </body>
 </html>

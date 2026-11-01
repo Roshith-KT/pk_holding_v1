@@ -135,30 +135,12 @@ const brandCards = [hettichBrand,...displayFirstProducts,...plywoodBrandCards,..
 const products = [...hettichProducts, ...displayFirstProducts, ...mikasaProducts, ...plymarcCombinedProducts, ...trojanCombinedProducts, ...century10Products, ...century08Products, ...remainingBaseProducts];
 
 function escapeHtml(value='') { return String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
-function productByAnyId(id) { return products.find(p => p.id === id || p.legacyId === Number(id)); }
-function loadCart() {
-  let raw = {};
-  try { raw = JSON.parse(localStorage.getItem('pk-quote-cart') || '{}'); } catch (e) {}
-  const normalized = {};
-  Object.entries(raw).forEach(([key,value]) => {
-    if (typeof value === 'number') {
-      const p = productByAnyId(key);
-      if (p && value > 0) normalized[`legacy-${key}`] = { productId:p.id, qty:value };
-    } else if (value && value.productId && Number(value.qty) > 0 && productByAnyId(value.productId)) {
-      normalized[key] = { ...value, qty:Number(value.qty) };
-    }
-  });
-  return normalized;
-}
-let cart = loadCart();
 let activeCategory = 'All';
 let activeSpecProduct = null;
 const grid = document.querySelector('#product-grid');
 const filters = document.querySelector('.filters');
 const search = document.querySelector('#product-search');
 const categories = ['All','Hettich','Hardware','Adhesives','Mikasa','Plymarc','Trojan','Century Laminates','Laminates',...new Set(baseProducts.map(p => p.category).filter(c => !['Hardware','Adhesives','Laminates'].includes(c)))];
-const cartEntries = () => Object.entries(cart).filter(([,item]) => item && item.qty > 0);
-const productInCart = id => cartEntries().some(([,item]) => item.productId === id);
 
 function renderFilters() {
   filters.innerHTML = categories.map(c => `<button class="filter ${c===activeCategory?'active':''}" data-category="${escapeHtml(c)}">${escapeHtml(brandLabels[c]||c)}</button>`).join('');
@@ -172,51 +154,24 @@ function renderProducts() {
   const source = brandView ? brandCollections[activeCategory] : [...brandCards,...remainingOtherProducts];
   const shown = source.filter(p => (brandView || activeCategory==='All' || p.category===activeCategory) && (`${p.name} ${p.category} ${p.brand} ${p.grade||''}`).toLowerCase().includes(q));
   const resultsBar=document.querySelector('.brand-results-bar'); resultsBar.hidden=!brandView;
-  if(brandView){resultsBar.querySelector('strong').textContent=brandLabels[activeCategory]||activeCategory;resultsBar.querySelector('span').textContent=activeCategory==='Century Laminates'?'Choose 1.0 mm or 0.8 mm':'Select products for quotation';resultsBar.querySelector('.brand-downloads').innerHTML=renderCatalogueLinks(brandCatalogueLinks[activeCategory]||[]);}
+  if(brandView){resultsBar.querySelector('strong').textContent=brandLabels[activeCategory]||activeCategory;resultsBar.querySelector('span').textContent=activeCategory==='Century Laminates'?'Browse 1.0 mm and 0.8 mm products':'Browse products and download the catalogue';resultsBar.querySelector('.brand-downloads').innerHTML=renderCatalogueLinks(brandCatalogueLinks[activeCategory]||[]);}
   grid.innerHTML = shown.map(p => {
     if(p.isBrand){return `<article class="product-card brand-card"><div class="product-image"><span>${escapeHtml(p.category)}</span><img loading="lazy" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}"></div><div class="product-info"><h3>${escapeHtml(p.name)}</h3><button class="add-button" data-brand="${escapeHtml(p.collectionKey||p.brand)}">View products →</button></div></article>`;}
     const configured = Boolean(p.thicknesses);
     const productClass=p.brand.toLowerCase().replace(/[^a-z0-9]+/g,'-');
     return `<article class="product-card ${configured?`${productClass}-product mikasa-product`:''} ${p.brand==='Hettich'?'hettich-item-card':''}">
       <div class="product-image"><span>${escapeHtml(configured?p.brand:p.category)}</span><img loading="lazy" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23eef0ec%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23333%22 font-family=%22Arial%22%3EPK HOLDING%3C/text%3E%3C/svg%3E'"></div>
-      <div class="product-info">${configured?`<div class="product-meta-line"><small class="mikasa-grade">${escapeHtml(p.grade)}</small><b>${escapeHtml(p.warranty)}</b></div>`:'<small>Price on request</small>'}<h3>${escapeHtml(configured?`${p.brand} ${p.name}`:p.name)}</h3>
-      <button class="add-button ${productInCart(p.id)?'added':''}" ${configured?`data-configure="${p.id}"`:`data-add="${p.id}"`}>${configured?(productInCart(p.id)?'Select another option ✓':'Select specifications →'):(productInCart(p.id)?'Added ✓':'Add to quotation +')}</button></div></article>`;
+      <div class="product-info">${configured?`<div class="product-meta-line"><small class="mikasa-grade">${escapeHtml(p.grade)}</small><b>${escapeHtml(p.warranty)}</b></div>`:'<small>Product catalogue</small>'}<h3>${escapeHtml(configured?`${p.brand} ${p.name}`:p.name)}</h3>
+      ${configured?`<button class="add-button" data-configure="${p.id}">View product details →</button>`:''}</div></article>`;
   }).join('');
   document.querySelector('.empty-state').hidden = shown.length > 0;
 }
-function save() { localStorage.setItem('pk-quote-cart', JSON.stringify(cart)); updateCount(); renderCart(); }
-function updateCount() { const count = cartEntries().reduce((sum,[,item]) => sum + item.qty, 0); document.querySelectorAll('[data-cart-count]').forEach(el => el.textContent = count); }
-function showToast(text='Added to quotation') { const toast=document.querySelector('.toast'); toast.textContent=text; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),1400); }
-function clearCart() {
-  cart = {};
-  localStorage.removeItem('pk-quote-cart');
-  updateCount();
-  renderCart();
-  renderProducts();
-  showToast('Quotation list cleared');
+function showToast(text='Quotation request ready') { const toast=document.querySelector('.toast'); toast.textContent=text; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),1800); }
+function openCart(open=true) {
+  document.body.classList.toggle('cart-open',open);
+  document.querySelector('.quote-drawer').setAttribute('aria-hidden',String(!open));
+  if(open) setTimeout(()=>document.querySelector('#customer-name')?.focus(),380);
 }
-function addQuick(id) {
-  const key = `product-${id}`;
-  cart[key] = cart[key] || { productId:id, qty:0 };
-  cart[key].qty += 1; save(); renderProducts(); showToast();
-}
-function addConfigured(product, grade, thickness, size, qty, notes) {
-  const match = cartEntries().find(([,item]) => item.productId===product.id && (item.grade||product.grade)===grade && item.thickness===thickness && (item.size||'')===size && (item.notes||'')===notes);
-  if (match) cart[match[0]].qty += qty;
-  else cart[`spec-${Date.now()}-${Math.random().toString(36).slice(2,7)}`] = { productId:product.id, grade, thickness, size, notes, qty };
-  save(); renderProducts(); showToast(`${product.name} added to quotation`);
-}
-function renderCart() {
-  const entries = cartEntries();
-  const wrap=document.querySelector('.cart-items'), empty=document.querySelector('.cart-empty'), form=document.querySelector('.drawer-form');
-  wrap.innerHTML = entries.map(([key,item]) => {
-    const p=productByAnyId(item.productId); if(!p) return '';
-    const specs=[(item.grade||p.grade)?`Grade: ${item.grade||p.grade}`:'',item.thickness?`Thickness: ${item.thickness}`:'',item.size?`Size: ${item.size}`:'',item.notes?`Notes: ${item.notes}`:''].filter(Boolean).join(' · ');
-    return `<div class="cart-item"><img src="${escapeHtml(p.image)}" alt=""><div>${p.thicknesses?`<div class="cart-brand">${escapeHtml(p.brand)} ${escapeHtml(p.type)}</div>`:''}<h4>${escapeHtml(p.name)}</h4>${specs?`<p class="cart-specs">${escapeHtml(specs)}</p>`:''}<div class="qty"><button data-qty="${escapeHtml(key)}" data-change="-1">−</button><span>${item.qty}</span><button data-qty="${escapeHtml(key)}" data-change="1">+</button></div></div><button class="remove" data-remove="${escapeHtml(key)}" aria-label="Remove ${escapeHtml(p.name)}">×</button></div>`;
-  }).join('');
-  empty.style.display=entries.length?'none':'block'; form.style.display=entries.length?'grid':'none';
-}
-function openCart(open=true) { document.body.classList.toggle('cart-open',open); document.querySelector('.quote-drawer').setAttribute('aria-hidden',String(!open)); if(open) renderCart(); }
 
 function openSpec(id) {
   const p=products.find(x=>x.id===id); if(!p) return; activeSpecProduct=p;
@@ -227,34 +182,62 @@ function openSpec(id) {
   document.querySelector('.spec-badges').innerHTML=[p.grade,p.emission,p.warranty,...p.features.slice(0,2)].filter(Boolean).map(x=>`<span>${escapeHtml(x)}</span>`).join('');
   document.querySelector('.spec-facts').innerHTML=[['Product',p.type],['Standard',p.standard],['Density',p.density],['Face veneer',p.face],['Adhesive',p.adhesive],['Calibration',p.brand==='Mikasa'?'100% precision calibrated':'']].filter(([,v])=>v).map(([k,v])=>`<div><small>${escapeHtml(k)}</small><strong>${escapeHtml(v)}</strong></div>`).join('');
   document.querySelector('.spec-applications').innerHTML=p.applications.map(x=>`<span>${escapeHtml(x)}</span>`).join('');
-  const grades=p.grades||[p.grade]; document.querySelector('#spec-grade').innerHTML=grades.map(grade=>`<option value="${escapeHtml(grade)}">${escapeHtml(grade)}</option>`).join('');
-  document.querySelector('#spec-thickness').innerHTML='<option value="">Select thickness</option>'+p.thicknesses.map(([mm,plies])=>{const label=typeof mm==='number'?`${mm} mm`:String(mm);return `<option value="${escapeHtml(label)}">${escapeHtml(label)}${plies?` · ${plies} plies`:''}</option>`;}).join('');
-  document.querySelector('#spec-size').value=p.defaultSize||''; document.querySelector('#spec-qty').value=1; document.querySelector('#spec-notes').value='';
   document.querySelector('.spec-disclaimer').textContent=p.brand==='Trojan'?'*Warranty and replacement conditions apply. Trojan states termite warranty does not apply to Classic, Champion and Pride in Kerala. Fire-retardant claims apply to BWP variants from 01.04.2026. Final availability will be confirmed by PK Holding.':'Final availability and specifications will be confirmed by PK Holding.';
   document.body.classList.add('spec-open'); document.querySelector('.spec-modal').setAttribute('aria-hidden','false');
 }
 function closeSpec() { document.body.classList.remove('spec-open'); document.querySelector('.spec-modal').setAttribute('aria-hidden','true'); activeSpecProduct=null; }
 
 filters.addEventListener('click',e=>{const b=e.target.closest('[data-category]');if(!b)return;activeCategory=b.dataset.category;renderFilters();renderProducts();});
-grid.addEventListener('click',e=>{const brand=e.target.closest('[data-brand]'),config=e.target.closest('[data-configure]'),add=e.target.closest('[data-add]');if(brand){activeCategory=brand.dataset.brand;search.value='';renderFilters();renderProducts();document.querySelector('#catalogue').scrollIntoView({behavior:'smooth'});}else if(config)openSpec(config.dataset.configure);else if(add)addQuick(add.dataset.add);});
+grid.addEventListener('click',e=>{const brand=e.target.closest('[data-brand]'),config=e.target.closest('[data-configure]');if(brand){activeCategory=brand.dataset.brand;search.value='';renderFilters();renderProducts();document.querySelector('#catalogue').scrollIntoView({behavior:'smooth'});}else if(config)openSpec(config.dataset.configure);});
 document.querySelector('[data-all-brands]').addEventListener('click',()=>{activeCategory='All';search.value='';renderFilters();renderProducts();});
 search.addEventListener('input',renderProducts);
 document.querySelectorAll('[data-open-cart]').forEach(b=>b.addEventListener('click',()=>openCart(true)));
 document.querySelectorAll('a[href="#why-us"]').forEach(link=>link.addEventListener('click',e=>{const target=document.querySelector('#why-us');if(!target)return;e.preventDefault();history.replaceState(null,'','#why-us');window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY,behavior:'smooth'});setTimeout(settleWhyUsScroll,220);setTimeout(settleWhyUsScroll,720);}));
 document.querySelectorAll('[data-close-cart]').forEach(b=>b.addEventListener('click',()=>openCart(false)));
-document.querySelectorAll('[data-clear-cart]').forEach(b=>b.addEventListener('click',clearCart));
 document.querySelectorAll('[data-close-spec]').forEach(b=>b.addEventListener('click',closeSpec));
-document.querySelector('.spec-add').addEventListener('click',()=>{
-  if(!activeSpecProduct)return; const thickness=document.querySelector('#spec-thickness').value; if(!thickness){document.querySelector('#spec-thickness').focus();showToast('Please select a thickness');return;}
-  addConfigured(activeSpecProduct,document.querySelector('#spec-grade').value,thickness,document.querySelector('#spec-size').value.trim(),Math.max(1,Number(document.querySelector('#spec-qty').value)||1),document.querySelector('#spec-notes').value.trim()); closeSpec();
+const quoteForm=document.querySelector('#quotation-form');
+const quotePdf=document.querySelector('#quote-pdf');
+const quoteFileName=document.querySelector('.quote-file-name');
+const quoteStatus=document.querySelector('.quote-send-status');
+function validQuotePdf(file) {
+  if(!file) return false;
+  return (file.type==='application/pdf'||file.name.toLowerCase().endsWith('.pdf'))&&file.size<=25*1024*1024;
+}
+quotePdf.addEventListener('change',()=>{
+  const file=quotePdf.files[0];
+  quotePdf.setCustomValidity('');
+  quoteFileName.classList.remove('error');
+  if(!file){quoteFileName.textContent='Optional · PDF only · maximum 25 MB';return;}
+  if(!validQuotePdf(file)){
+    quotePdf.setCustomValidity('Please choose a PDF file smaller than 25 MB.');
+    quoteFileName.textContent='Please choose a PDF file smaller than 25 MB';
+    quoteFileName.classList.add('error');
+    return;
+  }
+  quoteFileName.textContent=`${file.name} · ${(file.size/1024/1024).toFixed(1)} MB`;
 });
-document.querySelector('.cart-items').addEventListener('click',e=>{const q=e.target.closest('[data-qty]'),r=e.target.closest('[data-remove]');if(q){const key=q.dataset.qty;if(cart[key]){cart[key].qty=Math.max(0,cart[key].qty+Number(q.dataset.change));if(!cart[key].qty)delete cart[key];save();renderProducts();}}if(r){delete cart[r.dataset.remove];save();renderProducts();}});
-document.querySelector('.whatsapp-button').addEventListener('click',()=>{
-  const entries=cartEntries(); if(!entries.length)return;
-  const name=document.querySelector('#customer-name').value.trim()||'Customer', notes=document.querySelector('#quote-notes').value.trim();
-  const lines=entries.map(([,item],i)=>{const p=productByAnyId(item.productId);const specs=[(item.grade||p.grade)?`Grade: ${item.grade||p.grade}`:'',item.thickness?`Thickness: ${item.thickness}`:'',item.size?`Sheet size: ${item.size}`:'',`Qty: ${item.qty}`,item.notes?`Notes: ${item.notes}`:''].filter(Boolean).join(' | ');return `${i+1}. ${p.thicknesses?`${p.brand} `:''}${p.name} (${p.category})\n   ${specs}`;});
-  const message=`Hello PK Holding, I would like a quotation.\n\nName / Company: ${name}\n\nPRODUCT REQUIREMENTS\n${lines.join('\n\n')}\n\nProject details: ${notes||'Please contact me for specifications.'}\n\nPlease confirm pricing, availability and delivery.`;
+quoteForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  quoteStatus.textContent='';
+  const file=quotePdf.files[0];
+  if(file&&!validQuotePdf(file)){
+    quotePdf.setCustomValidity('Please choose a PDF file smaller than 25 MB.');
+    quoteForm.reportValidity();
+    return;
+  }
+  quotePdf.setCustomValidity('');
+  if(!quoteForm.reportValidity()) return;
+  const name=document.querySelector('#customer-name').value.trim();
+  const company=document.querySelector('#customer-company').value.trim();
+  const phone=document.querySelector('#customer-phone').value.trim();
+  const email=document.querySelector('#customer-email').value.trim();
+  const location=document.querySelector('#project-location').value.trim();
+  const details=document.querySelector('#quote-notes').value.trim();
+  const pdfLine=file?`\nSelected PDF: ${file.name} (please attach it in this chat before sending)`:'';
+  const message=`Hello PK Holding, I would like a quotation.\n\nName: ${name}\nCompany: ${company||'Not specified'}\nMobile: ${phone}\nEmail: ${email||'Not specified'}\nProject / delivery location: ${location||'Not specified'}\n\nRequirement details:\n${details||'Not specified'}${pdfLine}\n\nPlease confirm pricing, availability and delivery.`;
   window.open(`https://wa.me/917736210236?text=${encodeURIComponent(message)}`,'_blank','noopener');
+  quoteStatus.textContent=file?`WhatsApp opened. Please attach “${file.name}” before sending.`:'PK Holding WhatsApp opened with your quotation details.';
+  showToast('Opening PK Holding WhatsApp');
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.body.classList.contains('mobile-menu-open'))closeMobileMenu();else if(document.body.classList.contains('spec-open'))closeSpec();else openCart(false);}});
 
@@ -270,7 +253,8 @@ document.querySelector('.why-video-showcase')?.addEventListener('click',e=>{if(e
 document.addEventListener('pointerdown',e=>{if(e.target.closest('.why-video-showcase'))unlockHeroSound();},{passive:true});
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&heroVideos[heroVideoIndex])heroVideos[heroVideoIndex].play().catch(()=>{});});
 playHeroVideo(0);
-renderFilters();renderProducts();updateCount();renderCart();
+renderFilters();renderProducts();
+if(location.hash==='#quotation') openCart(true);
 function settleWhyUsScroll(){const target=document.querySelector('#why-us');if(!target||location.hash!=='#why-us')return;window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY,behavior:'auto'});}
 requestAnimationFrame(settleWhyUsScroll);
 setTimeout(settleWhyUsScroll,180);
